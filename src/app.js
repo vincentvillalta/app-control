@@ -1,4 +1,4 @@
-angular.module('DicormoApp', ['ionic', 'ngResource', 'ngMessages'])
+angular.module('DicormoApp', ['ionic', 'ngResource', 'ngMessages', 'ngRoute', 'angular-jwt', 'angular-storage' ])
   .run(function ($ionicPlatform,$ionicPopup) {
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -27,8 +27,10 @@ angular.module('DicormoApp', ['ionic', 'ngResource', 'ngMessages'])
     )
     ;
   })
+.constant('CONFIG', {
+    APIURL: "http://104.236.42.145/app"
+})
   .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
-
 
     $stateProvider
       .state('home', {
@@ -56,7 +58,9 @@ angular.module('DicormoApp', ['ionic', 'ngResource', 'ngMessages'])
       })
       .state('home.student', {
             url: '/student',
-            templateUrl: 'views/home/student.html'
+            /*templateUrl: 'views/home/student.html',*/
+            templateUrl: 'views/home/try.html',
+            controller: 'StudentCtrl'
       })
       .state('home.schedule', {
         url: '/schedule',
@@ -70,10 +74,7 @@ angular.module('DicormoApp', ['ionic', 'ngResource', 'ngMessages'])
         url: '/teacher',
         templateUrl: 'views/home/teacher.html'
       })
-      .state('home.clase', {
-        url: '/clase',
-        templateUrl: 'views/home/clase.html'
-      })
+
     ;
 
 

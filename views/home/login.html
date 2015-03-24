@@ -10,11 +10,11 @@
 
       <div class="list">
         <label class="item item-input"
-               ng-class="{ 'has-error-lr' : loginForm.username.$invalid && loginForm.$submitted, 'valid' : loginForm.password.$valid  && loginForm.$submitted}">
+               ng-class="{ 'has-error-lr' : loginForm.email.$invalid && loginForm.$submitted, 'valid' : loginForm.email.$valid  && loginForm.$submitted}">
           <span class="input-label">Email:</span>
           <input type="text"
-                 name="username"
-                 ng-model="credentials.username"
+                 name="email"
+                 ng-model="credentials.email"
                  ng-minlength="5"
                  ng-maxlength="30"
                  required>
